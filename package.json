@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.1.0",
   "scripts": {
-    "start": "yarn workspace verse-server install && yarn workspace verse-website dev"
+    "start": "yarn workspace verse-website install && yarn workspace verse-website dev"
   },
   "workspaces": [
     "packages/*"
