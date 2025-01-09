@@ -13,7 +13,7 @@
     "prettier": "^3.2.5"
   },
   "devDependencies": {
-    "concurrently": "^7.0.0" // Adjust to the latest version if necessary
+    "concurrently": "^7.0.0"
   },
   "engines": {
     "node": "20.11.0"
