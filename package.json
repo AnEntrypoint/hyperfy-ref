@@ -4,7 +4,6 @@
   "version": "0.1.0",
   "scripts": {
     "start": "concurrently \"yarn workspace verse-server install && yarn workspace verse-server dev\" \"yarn workspace verse-server install && yarn workspace verse-website dev\"",
-    "build": "node ./build.mjs"
   },
   "workspaces": [
     "packages/*"
