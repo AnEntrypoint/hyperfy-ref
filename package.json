@@ -2,11 +2,18 @@
   "name": "verse",
   "private": true,
   "version": "0.1.0",
+  "scripts": {
+    "start": "concurrently \"yarn workspace verse-server dev\" \"yarn workspace verse-website dev\"",
+    "build": "node ./build.mjs"
+  },
   "workspaces": [
     "packages/*"
   ],
   "dependencies": {
     "prettier": "^3.2.5"
+  },
+  "devDependencies": {
+    "concurrently": "^7.0.0" // Adjust to the latest version if necessary
   },
   "engines": {
     "node": "20.11.0"
