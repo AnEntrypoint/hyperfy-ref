@@ -1,35 +1,4 @@
 [phases.setup]
 providers = ["node", "python3"]
-nixPkgs = ["nodejs_20", "yarn", "python311"]
-aptPkgs = ["build-essential"]
-
-[phases.install]
-cmds = [
-    "npm install -g corepack@0.24.1",
-    "corepack enable",
-    "yarn set version 4.3.1",
-    "yarn config set nodeLinker node-modules",
-    "yarn config set enableGlobalCache true",
-    "yarn install --mode=update-lockfile"
-]
-dependsOn = ["setup"]
-cacheDirectories = [
-    ".yarn/cache",
-    ".yarn/unplugged",
-    ".yarn/build-state.yml",
-    "node_modules",
-    "packages/*/node_modules"
-]
-
-[phases.build]
-cmds = ["yarn build"]
-dependsOn = ["install"]
-cacheDirectories = ["packages/*/dist", "packages/*/build"]
-
-[start]
-cmd = "yarn start"
-
-[variables]
-NODE_ENV = "production"
-YARN_ENABLE_GLOBAL_CACHE = "true"
-YARN_ENABLE_MIRROR = "true" 
+nixPkgs = ['...','python311']
+aptPkgs = ['build-essential']
