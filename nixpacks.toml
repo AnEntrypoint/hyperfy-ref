@@ -4,9 +4,22 @@ nixPkgs = ["nodejs_20", "yarn", "python311"]
 aptPkgs = ["build-essential"]
 
 [phases.install]
-cmds = ["yarn install --immutable"]
+cmds = [
+    "npm install -g corepack@0.24.1",
+    "corepack enable",
+    "yarn set version 4.3.1",
+    "yarn config set nodeLinker node-modules",
+    "yarn install --immutable"
+]
 dependsOn = ["setup"]
-cacheDirectories = [".yarn/cache", "node_modules", "packages/*/node_modules"]
+cacheDirectories = [
+    ".yarn/cache",
+    ".yarn/unplugged",
+    ".yarn/build-state.yml",
+    ".yarn/install-state.gz",
+    "node_modules",
+    "packages/*/node_modules"
+]
 
 [phases.build]
 cmds = ["yarn build"]
