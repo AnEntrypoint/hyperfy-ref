@@ -1,4 +1,13 @@
 [phases.setup]
-providers = ["node", "python3"]
-nixPkgs = ['...','python311']
-aptPkgs = ['build-essential']
+providers = ["node"]
+nixPkgs = ["nodejs_20"]
+aptPkgs = ["build-essential"]
+
+[phases.install]
+cmds = ["npm install -g corepack@0.24.1 && corepack enable", "yarn install --check-cache"]
+
+[phases.build]
+cmds = ["yarn build"]
+
+[start]
+cmd = "yarn start"
