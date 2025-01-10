@@ -1,4 +1,17 @@
 [phases.setup]
 providers = ["node", "python3"]
-nixPkgs = ['...','python311']
-aptPkgs = ['build-essential']
+nixPkgs = ["nodejs@20", "yarn", "python311"]
+aptPkgs = ["build-essential"]
+
+[phases.install]
+cmds = ["yarn install --immutable"]
+dependsOn = ["setup"]
+cacheDirectories = [".yarn/cache", "node_modules", "packages/*/node_modules"]
+
+[phases.build]
+cmds = ["yarn build"]
+dependsOn = ["install"]
+cacheDirectories = ["packages/*/dist", "packages/*/build"]
+
+[start]
+cmd = "yarn start" 
