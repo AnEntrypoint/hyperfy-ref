@@ -1,6 +1,6 @@
 [phases.setup]
 providers = ["node", "python3"]
-nixPkgs = ["nodejs@20", "yarn", "python311"]
+nixPkgs = ["nodejs_20", "yarn", "python311"]
 aptPkgs = ["build-essential"]
 
 [phases.install]
